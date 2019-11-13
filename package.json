@@ -9,7 +9,7 @@
   "scripts": {
     "compile": "babel src/ --out-dir lib",
     "bundle": "babel src/ --out-file dist/react-hexgrid.js",
-    "prepublish": "npm run compile",
+    "prepare": "npm run compile",
     "test:watch": "jest --watch --coverage",
     "test": "jest --coverage"
   },
