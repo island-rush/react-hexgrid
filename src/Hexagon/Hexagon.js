@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Hex from '../models/Hex';
-import HexUtils from '../HexUtils';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classNames from "classnames";
+import Hex from "../models/Hex";
+import HexUtils from "../HexUtils";
 
 class Hexagon extends Component {
   static propTypes = {
@@ -10,10 +10,7 @@ class Hexagon extends Component {
     r: PropTypes.number.isRequired,
     s: PropTypes.number.isRequired,
     fill: PropTypes.string,
-    cellStyle: PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.object
-    ]),
+    cellStyle: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
     className: PropTypes.string,
     data: PropTypes.object,
     onMouseEnter: PropTypes.func,
@@ -24,7 +21,8 @@ class Hexagon extends Component {
     onDragEnd: PropTypes.func,
     onDragOver: PropTypes.func,
     onDrop: PropTypes.func,
-    children: PropTypes.node
+    children: PropTypes.node,
+    title: PropTypes.string
   };
 
   static contextTypes = {
@@ -77,14 +75,14 @@ class Hexagon extends Component {
         fill: this.props.fill,
         className: this.props.className
       };
-      e.dataTransfer.setData('hexagon', JSON.stringify(targetProps));
+      e.dataTransfer.setData("hexagon", JSON.stringify(targetProps));
       this.props.onDragStart(e, this);
     }
   }
   onDragEnd(e) {
     if (this.props.onDragEnd) {
       e.preventDefault();
-      const success = (e.dataTransfer.dropEffect !== 'none');
+      const success = e.dataTransfer.dropEffect !== "none";
       this.props.onDragEnd(e, this, success);
     }
   }
@@ -96,18 +94,19 @@ class Hexagon extends Component {
   onDrop(e) {
     if (this.props.onDrop) {
       e.preventDefault();
-      const target = JSON.parse(e.dataTransfer.getData('hexagon'));
+      const target = JSON.parse(e.dataTransfer.getData("hexagon"));
       this.props.onDrop(e, this, target);
     }
   }
   render() {
-    const { fill, cellStyle, className } = this.props;
+    const { fill, cellStyle, className, title } = this.props;
     const { points } = this.context;
     const { hex, pixel } = this.state;
-    const fillId = (fill) ? `url(#${fill})` : null;
+    const fillId = fill ? `url(#${fill})` : null;
+    const titleHTML = title == undefined ? null : <title>{title}</title>;
     return (
       <g
-        className={classNames('hexagon-group', className)}
+        className={classNames("hexagon-group", className)}
         transform={`translate(${pixel.x}, ${pixel.y})`}
         draggable="true"
         onMouseEnter={e => this.onMouseEnter(e)}
@@ -120,7 +119,9 @@ class Hexagon extends Component {
         onDrop={e => this.onDrop(e)}
       >
         <g className="hexagon">
-          <polygon points={points} fill={fillId} style={cellStyle} />
+          <polygon points={points} fill={fillId} style={cellStyle}>
+            {titleHTML}
+          </polygon>
           {this.props.children}
         </g>
       </g>
