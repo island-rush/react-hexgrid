@@ -35,5 +35,6 @@
   "files": [
     "lib/",
     "dist/"
-  ]
+  ],
+  "typings": "./src/index.d.ts"
 }
