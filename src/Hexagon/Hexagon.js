@@ -120,28 +120,28 @@ class Hexagon extends Component {
 
     const titleHTML = title == undefined ? null : <title>{title}</title>;
     const bottomBlueHTML =
-      bottomBlue == undefined ? null : (
+      bottomBlue == false ? null : (
         <polygon
           points="-1.75,.5 -1.75,1.5 -.75,1.5 -.75,.5"
           fill="url(#blue)"
         ></polygon>
       );
     const bottomRedHTML =
-      bottomRed == undefined ? null : (
+      bottomRed == false ? null : (
         <polygon
           points="1.5,.5 1.5,1.5 .75,1.5 .75,.5"
           fill="url(#red)"
         ></polygon>
       );
     const topBlueHTML =
-      topBlue == undefined ? null : (
+      topBlue == false ? null : (
         <polygon
           points="-1.75,-1.25 -1.75,-.25 -1,-.75"
           fill="url(#blue)"
         ></polygon>
       );
     const topRedHTML =
-      topRed == undefined ? null : (
+      topRed == false ? null : (
         <polygon
           points="1.75,-1.25 1.75,-.25 1,-.75"
           fill="url(#red)"
