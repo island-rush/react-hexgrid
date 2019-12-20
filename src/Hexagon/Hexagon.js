@@ -122,7 +122,6 @@ class Hexagon extends Component {
           <polygon points={points} fill={fillId} style={cellStyle}>
             {titleHTML}
           </polygon>
-          <rect x="10" y="10" width="30" height="30" />
           {this.props.children}
         </g>
       </g>
