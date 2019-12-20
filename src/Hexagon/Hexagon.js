@@ -22,7 +22,12 @@ class Hexagon extends Component {
     onDragOver: PropTypes.func,
     onDrop: PropTypes.func,
     children: PropTypes.node,
-    title: PropTypes.string
+
+    title: PropTypes.string,
+    bottomBlue: PropTypes.boolean,
+    bottomRed: PropTypes.boolean,
+    topBlue: PropTypes.boolean,
+    topRed: PropTypes.boolean
   };
 
   static contextTypes = {
@@ -99,11 +104,50 @@ class Hexagon extends Component {
     }
   }
   render() {
-    const { fill, cellStyle, className, title } = this.props;
+    const {
+      fill,
+      cellStyle,
+      className,
+      title,
+      bottomBlue,
+      bottomRed,
+      topBlue,
+      topRed
+    } = this.props;
     const { points } = this.context;
     const { hex, pixel } = this.state;
     const fillId = fill ? `url(#${fill})` : null;
+
     const titleHTML = title == undefined ? null : <title>{title}</title>;
+    const bottomBlueHTML =
+      bottomBlue == undefined ? null : (
+        <polygon
+          points="-1.75,.5 -1.75,1.5 -.75,1.5 -.75,.5"
+          fill="url(#blue)"
+        ></polygon>
+      );
+    const bottomRedHTML =
+      bottomRed == undefined ? null : (
+        <polygon
+          points="1.5,.5 1.5,1.5 .75,1.5 .75,.5"
+          fill="url(#red)"
+        ></polygon>
+      );
+    const topBlueHTML =
+      topBlue == undefined ? null : (
+        <polygon
+          points="-1.75,-1.25 -1.75,-.25 -1,-.75"
+          fill="url(#blue)"
+        ></polygon>
+      );
+    const topRedHTML =
+      topRed == undefined ? null : (
+        <polygon
+          points="1.75,-1.25 1.75,-.25 1,-.75"
+          fill="url(#red)"
+        ></polygon>
+      );
+
     return (
       <g
         className={classNames("hexagon-group", className)}
@@ -122,6 +166,10 @@ class Hexagon extends Component {
           <polygon points={points} fill={fillId} style={cellStyle}>
             {titleHTML}
           </polygon>
+          {bottomBlueHTML}
+          {bottomRedHTML}
+          {topBlueHTML}
+          {topRedHTML}
           {this.props.children}
         </g>
       </g>
