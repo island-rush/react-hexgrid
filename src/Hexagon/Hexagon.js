@@ -131,32 +131,32 @@ class Hexagon extends Component {
     const fillId = fill ? `url(#${fill})` : null;
 
     const titleHTML = title == undefined ? null : <title>{title}</title>;
-    const bottomBlueHTML =
+    const bottomRedHTML =
       bottomBlue == false ? null : (
         <polygon
           points="-1.75,.5 -1.75,1.5 -.75,1.5 -.75,.5"
-          style={blueStyle}
-        ></polygon>
-      );
-    const bottomRedHTML =
-      bottomRed == false ? null : (
-        <polygon
-          points="1.5,.5 1.5,1.5 .75,1.5 .75,.5"
           style={redStyle}
         ></polygon>
       );
-    const topBlueHTML =
-      topBlue == false ? null : (
+    const bottomBlueHTML =
+      bottomRed == false ? null : (
         <polygon
-          points="-1.75,-1.25 -1.75,-.25 -1,-.75"
+          points="1.5,.5 1.5,1.5 .75,1.5 .75,.5"
           style={blueStyle}
         ></polygon>
       );
     const topRedHTML =
+      topBlue == false ? null : (
+        <polygon
+          points="-1.75,-1.25 -1.75,-.25 -1,-.75"
+          style={redStyle}
+        ></polygon>
+      );
+    const topBlueHTML =
       topRed == false ? null : (
         <polygon
           points="1.75,-1.25 1.75,-.25 1,-.75"
-          style={redStyle}
+          style={blueStyle}
         ></polygon>
       );
 
