@@ -4,6 +4,18 @@ import classNames from "classnames";
 import Hex from "../models/Hex";
 import HexUtils from "../HexUtils";
 
+const redStyle = {
+  fill: "red",
+  stroke: "black",
+  strokeWidth: 0.09
+};
+
+const blueStyle = {
+  fill: "blue",
+  stroke: "black",
+  strokeWidth: 0.09
+};
+
 class Hexagon extends Component {
   static propTypes = {
     q: PropTypes.number.isRequired,
@@ -123,28 +135,28 @@ class Hexagon extends Component {
       bottomBlue == false ? null : (
         <polygon
           points="-1.75,.5 -1.75,1.5 -.75,1.5 -.75,.5"
-          style="fill:blue;stroke:black;stroke-width:.09"
+          style={blueStyle}
         ></polygon>
       );
     const bottomRedHTML =
       bottomRed == false ? null : (
         <polygon
           points="1.5,.5 1.5,1.5 .75,1.5 .75,.5"
-          style="fill:red;stroke:black;stroke-width:.09"
+          style={redStyle}
         ></polygon>
       );
     const topBlueHTML =
       topBlue == false ? null : (
         <polygon
           points="-1.75,-1.25 -1.75,-.25 -1,-.75"
-          style="fill:blue;stroke:black;stroke-width:.09"
+          style={blueStyle}
         ></polygon>
       );
     const topRedHTML =
       topRed == false ? null : (
         <polygon
           points="1.75,-1.25 1.75,-.25 1,-.75"
-          style="fill:red;stroke:black;stroke-width:.09"
+          style={redStyle}
         ></polygon>
       );
 
