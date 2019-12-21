@@ -123,28 +123,28 @@ class Hexagon extends Component {
       bottomBlue == false ? null : (
         <polygon
           points="-1.75,.5 -1.75,1.5 -.75,1.5 -.75,.5"
-          fill="url(#blue)"
+          style="fill:blue;stroke:black;stroke-width:.09"
         ></polygon>
       );
     const bottomRedHTML =
       bottomRed == false ? null : (
         <polygon
           points="1.5,.5 1.5,1.5 .75,1.5 .75,.5"
-          fill="url(#red)"
+          style="fill:red;stroke:black;stroke-width:.09"
         ></polygon>
       );
     const topBlueHTML =
       topBlue == false ? null : (
         <polygon
           points="-1.75,-1.25 -1.75,-.25 -1,-.75"
-          fill="url(#blue)"
+          style="fill:blue;stroke:black;stroke-width:.09"
         ></polygon>
       );
     const topRedHTML =
       topRed == false ? null : (
         <polygon
           points="1.75,-1.25 1.75,-.25 1,-.75"
-          fill="url(#red)"
+          style="fill:red;stroke:black;stroke-width:.09"
         ></polygon>
       );
 
