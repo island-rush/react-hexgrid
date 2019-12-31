@@ -36,10 +36,10 @@ class Hexagon extends Component {
     children: PropTypes.node,
 
     title: PropTypes.string,
-    bottomBlue: PropTypes.boolean,
-    bottomRed: PropTypes.boolean,
-    topBlue: PropTypes.boolean,
-    topRed: PropTypes.boolean
+    bottomBlue: PropTypes.bool,
+    bottomRed: PropTypes.bool,
+    topBlue: PropTypes.bool,
+    topRed: PropTypes.bool
   };
 
   static contextTypes = {
